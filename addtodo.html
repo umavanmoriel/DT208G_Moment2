@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-        <title>Startsida</title>
+        <title>Lägg till todo</title>
         <link rel="stylesheet" href="./src/main.css">
         <script src="./src/js/headernav.js" type="module"></script>
     </head>
@@ -17,8 +17,15 @@
                 </ul>
             </nav>
         </header>
-        <main class="todo-main">
-            <h1>Todolista</h1>   
+        <main class="addtodo-main">
+            <h1>Lägg till todo</h1> 
+            <form class="addtodo-form">
+                <div class="input-label-container">
+                    <label for="task">Skriv todo hit</label>
+                    <input type="text" id="task" name="task">    
+                </div>
+                <button class="addtodo-button" type="submit">Lägg till</button>
+            </form>  
         </main>
         <footer>
             <ul class="footer-list">
