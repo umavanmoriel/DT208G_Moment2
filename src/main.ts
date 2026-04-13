@@ -33,21 +33,4 @@ class TodoList implements Todo {
     };
   };
 
-  markTodoCompleted(todoIndex: number): void {
-    console.log("Todo klar")
-  }
-
-  getTodos(): Todo[] {
-    return;
-  };
-
-  saveToLocalStorage(): void {
-    localStorage.setItem(Todo[]);
-  }
-
-  loadFromLocalStorage(): void {
-    localStorage.getItem(Todo[]);
-  }
-
-
 }
