@@ -7,7 +7,6 @@
         <title>Startsida</title>
         <link rel="stylesheet" href="./src/main.css">
         <script src="./src/js/headernav.js" type="module"></script>
-        <script src="./src/main.ts" type="module"></script>
     </head>
     <body>
         <header>
@@ -21,6 +20,20 @@
         <main class="todo-main">
             <h1>Todolista</h1>
             <div id="todolist"></div> 
+            <table id="todoTable">
+              <thead>
+                <tr>
+                  <th>Task</th>
+                  <th>Prioritet</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="todoBody">
+                <tr>
+
+                </tr>
+              </tbody>
+            </table>
         </main>
         <footer>
             <ul class="footer-list">
@@ -28,5 +41,6 @@
                 <li>Programmering i TypeScript</li>
             </ul>
     </footer>
+    <script src="./src/displaytodo.ts" type="module"></script>
     </body>
 </html>
