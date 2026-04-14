@@ -1,25 +1,27 @@
-
-
-interface Todo {
+// Interface Todo som definierar kontraktet för en att göra-uppgift
+export interface Todo {
   task: string;
   completed: boolean;
   priority: 1|2|3;
 }
 
-class TodoList {
+// Todo klass
+export class TodoList {
   todos: Array<Todo>;
 
+  //Constructorn gör listan tom och hämtar sedan alla sparade uppgifter från webbläsarens LocalStorage
   constructor() {
     this.todos= [];
     this.loadFromLocalStorage();
   }
 
+  // Returnera true om både task och priority innehåller korrekta värden, i annat fall false
   addTodo(task: string, priority: number): boolean {
-    if(priority === 1 || priority === 2 || priority === 3) {
+    if((task !== "") && (priority === 1 || priority === 2 || priority === 3)) {
       let newTodo : Todo = {
         task: task,
         completed: false,
-        priority: priority as 1 || priority as 2 || priority as 3
+        priority: priority
       };
 
       this.todos.push(newTodo);
@@ -30,6 +32,7 @@ class TodoList {
     };
   };
 
+  // Markera todos som är klara
   markTodoCompleted(todoIndex: number): void {
     if (this.todos[todoIndex]) {
       this.todos[todoIndex].completed = true;
@@ -37,14 +40,17 @@ class TodoList {
     }
   }
 
+  // Hämtar hela listan av todos
   getTodos(): Todo[] {
     return this.todos;
   };
 
+  // Sparar todos till LocalStorage
   saveToLocalStorage(): void {
     localStorage.setItem("todos", JSON.stringify(this.todos));
   }
 
+  // Hämtar todos från LocalStorage
   loadFromLocalStorage(): void {
     let savedTodos = localStorage.getItem("todos");
     if (savedTodos) {

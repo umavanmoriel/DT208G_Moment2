@@ -7,6 +7,7 @@
         <title>Lägg till todo</title>
         <link rel="stylesheet" href="./src/main.css">
         <script src="./src/js/headernav.js" type="module"></script>
+        <script src="./src/addtodo.ts" type="module"></script>
     </head>
     <body>
         <header>
@@ -24,7 +25,16 @@
                     <label for="task">Skriv todo hit</label>
                     <input type="text" id="task" name="task">    
                 </div>
+                <div class="priority-container">
+                    <label for="priority">Prioritet:</label>
+                    <select id="priority" name="priority">
+                        <option value="1">1 - Högst prioritet</option>
+                        <option value="2">2 - Mellan prioritet</option>
+                        <option value="3">3 - Lägst prioritet</option>
+                    </select>
+                </div>
                 <button class="addtodo-button" type="submit">Lägg till</button>
+                <div id="message"></div>
             </form>  
         </main>
         <footer>
