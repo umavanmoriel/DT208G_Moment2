@@ -67,7 +67,8 @@ header {
   cursor: pointer;
 }
 
-.nav-link.active {
+body[data-page="index"] .nav-link[href="./index.html"],
+body[data-page="addtodo"] .nav-link[href="./addtodo.html"] {
   background: #ffffff;
   color: #111827;
   transform: translateY(1px);
