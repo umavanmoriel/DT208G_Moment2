@@ -1,125 +1,259 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+/* Table-first styling (simple + consistent) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  text-decoration: none;
-  list-style: none;
 }
 
 body {
-  font-family: Inter, sans-serif;
-  background-color: #e4fffe;
-  color: #332E3C; 
-  display: grid;
-  grid-template-rows: 50px 1fr 50px;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: #111827;
+  background: #e4fffe;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-a {
-    color: #FFECB3;
-    text-decoration: none;
-    padding: 10px 20px;
+main {
+  flex: 1;
 }
 
 h1 {
-  text-align: center;
-  font-family: Inter, sans-serif;
-  font-size: 28px;
-  font-weight: 700;
-  color: #332E3C;
+  font-size: 26px;
+  font-weight: 800;
+  margin: 10px 0 16px;
+  text-align: left;
 }
 
-p {
-  text-align: center;
-  margin: 10px 0;
-  font-family: Playfair Display, serif;
-}
-
-li {
-  font-family: Inter, sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-}
-
-/* Header */
+/* Header / nav */
 header {
-  background-color: #e4fffe;
-  color: #FFFFFF;
-  padding: 0px 30px;
-  height: 50px;
+  background: #e4fffe;
+  border-bottom: none;
+  padding: 0 80px;
+  height: 70px;
   display: flex;
   justify-content: start;
   align-items: end;
 }
 
 .nav-list {
-    display: flex;
-    justify-content: center;
-    gap: 3px;
+  display: flex;
+  justify-content: center;
+  gap: 3px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
 
 .nav-link {
-    display: block;
-    padding: 10px 20px;
-    text-decoration: none;
-    color: #332E3C;
-    background: #F0E6EF;
-    border-bottom: none;
-    border-radius: 5px 5px 0 0;
-    transition: background ease 250ms, color ease 250ms;
+  display: block;
+  padding: 10px 20px;
+  color: #111827;
+  text-decoration: none;
+  background: #f9e4ff;
+  border-bottom: none;
+  border-radius: 5px 5px 0 0;
+  border: 1px solid rgba(17, 24, 39, 0.18);
+  border-bottom: none;
+  font-weight: 700;
+  transition: background 250ms ease, color 250ms ease, opacity 250ms ease;
 }
 
 .nav-link:hover {
-    background: #e5ffe4 ;
-    opacity: 0.7;
-    cursor: pointer;
+  background: #e5ffe4;
+  opacity: 0.85;
+  cursor: pointer;
 }
-
 
 .nav-link.active {
-    background: #f7ffe4;
-    color: #332E3C;
+  background: #ffffff;
+  color: #111827;
 }
 
-/* Main */
-
-.todo-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 50px;
-    margin: 0px 30px;
-    background-color: #f7ffe4;
-    border-radius: 0px 5px 5px 5px;
+.nav-link:focus-visible {
+  outline: 2px solid #6d28d9;
+  outline-offset: 2px;
 }
 
+/* Main container */
+.todo-main,
 .addtodo-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-    padding: 70px;
-    margin: 0px 30px;
-    background-color: #f7ffe4;
-    border-radius: 0px 5px 5px 5px;
+  margin: 0px 80px;
+  padding: 30px;
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+}
+
+/* Todo table */
+.todo-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #d1d5db;
+}
+
+.todo-table thead th {
+  background: #e5e4ff;
+  border-bottom: 1px solid #d1d5db;
+  padding: 10px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.todo-table td {
+  padding: 10px;
+  border-top: 1px solid rgba(17, 24, 39, 0.14);
+  vertical-align: top;
+}
+
+.todo-table tbody tr:nth-child(even) {
+  background: #f7ffe4;
+}
+
+.todo-table tbody tr:hover {
+  background: #e5ffe4;
+}
+
+/* Addtodo form */
+.addtodo-form {
+  width: 100%;
+  display: table;
+  border-collapse: collapse;
+  border: 1px solid #d1d5db;
+}
+
+.input-label-container,
+.priority-container {
+  display: table-row;
+}
+
+.addtodo-form label,
+.addtodo-form input,
+.addtodo-form select {
+  display: table-cell;
+  padding: 10px;
+  border-top: 1px solid rgba(17, 24, 39, 0.14);
+}
+
+.addtodo-form label {
+  width: 220px;
+  font-weight: 800;
+  color: #374151;
+  background: #fff;
+}
+
+.addtodo-form input[type="text"],
+.addtodo-form select {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  background: #fff;
+  color: #111827;
+  border-radius: 0;
+}
+
+.addtodo-form input[type="text"]:focus,
+.addtodo-form select:focus {
+  outline: 2px solid #6d28d9;
+  outline-offset: 0;
+}
+
+/* Knappar */
+button {
+  appearance: none;
+  -webkit-appearance: none;
+  font: inherit;
+  font-weight: 800;
+  padding: 8px 10px;
+  border: 1px solid #d1d5db;
+  background: #e5e4ff;
+  color: #111827;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #f7ffe4;
+}
+
+button:focus-visible {
+  outline: 2px solid #6d28d9;
+  outline-offset: 2px;
+}
+
+.addtodo-button {
+  margin: 10px;
+}
+
+#message {
+  margin: 10px;
+  color: red;
+  font-weight: 700;
+  text-align: start;
 }
 
 /* Footer */
 footer {
-  background-color: #e4fffe;
-  color: #332E3C;
+  background: #e4fffe;
   display: flex;
   justify-content: center;
-  padding: 10px 30px;
 }
 
 .footer-list {
+  list-style: none;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 30px 12px;
+  color: #374151;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+  text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+
+  /* Header / nav */
+  header {
+    background: #e4fffe;
+    border-bottom: none;
+    padding: 0 20px;
+    height: 70px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 40px 0px;
+    justify-content: start;
+    align-items: end;
+  }
+
+  h1 {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  /* Main container */
+  .todo-main,
+  .addtodo-main {
+    margin: 0px 20px;
+    padding: 10px;
+    border: 1px solid #d1d5db;
+    background: #ffffff;
+  }
+
+  /* Knappar */
+  button {
+    padding: 4px 6px;
+    font-weight: 600;
+    font-size: 15px;
+  }
+
+  .todo-table td,
+  .todo-table thead th {
+    padding: 5px;
+  }
+
+  .input-label-container,
+  .priority-container {
+    display: block;
+  }
 }

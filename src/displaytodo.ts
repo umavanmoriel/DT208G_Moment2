@@ -28,6 +28,14 @@ document.addEventListener("DOMContentLoaded", () => {
         
         // Skapa en ny rad
         const rad: HTMLTableRowElement = document.createElement('tr');
+
+        if (todo.priority === 1) {
+            rad.classList.add('priority-1');
+        } else if (todo.priority === 2) {
+            rad.classList.add('priority-2');
+        } else {
+            rad.classList.add('priority-3');
+        }
         
         // Skapa 3 kolumner
         const kolumn1: HTMLTableCellElement = document.createElement('td');

@@ -2,7 +2,6 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
         <title>Lägg till todo</title>
         <link rel="stylesheet" href="./src/main.css">
@@ -20,7 +19,7 @@
         </header>
         <main class="addtodo-main">
             <h1>Lägg till todo</h1> 
-            <form class="addtodo-form">
+            <form class="addtodo-form" aria-label="Lägg till todo">
                 <div class="input-label-container">
                     <label for="task">Skriv todo hit</label>
                     <input type="text" id="task" name="task">    
@@ -33,8 +32,8 @@
                         <option value="3">3 - Lägst prioritet</option>
                     </select>
                 </div>
-                <button class="addtodo-button" type="submit">Lägg till</button>
                 <div id="message"></div>
+                <button class="addtodo-button" type="submit">Lägg till</button>
             </form>  
         </main>
         <footer>
