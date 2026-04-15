@@ -70,6 +70,7 @@ header {
 .nav-link.active {
   background: #ffffff;
   color: #111827;
+  transform: translateY(1px);
 }
 
 .nav-link:focus-visible {
