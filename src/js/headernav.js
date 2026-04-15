@@ -1,18 +1,20 @@
 //Header meny animation
 document.addEventListener('DOMContentLoaded', function() {
-    // Hämta alla navigationslänkar
     const links = document.querySelectorAll('.nav-link');
     
     // Ta reda på vilken sida man är
-    const currentPath = window.location.pathname;
-
-    links.forEach(link => {
-      link.classList.remove('active');
-      const linkPath = link.getAttribute('href');
+    let currentPage = window.location.pathname.split('/').pop();
+    if (currentPage === '' || !currentPage.includes('.html')) {
+        currentPage = 'index.html';
+    }
     
-      if (linkPath.includes(currentPath)) {
-        link.classList.add('active');
-      }
+    links.forEach(link => {
+        link.classList.remove('active');
+        
+        let linkPage = link.getAttribute('href').replace('./', '');
+        
+        if (linkPage === currentPage) {
+            link.classList.add('active');
+        }
     });
-
 });
