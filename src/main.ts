@@ -60,4 +60,12 @@ export class TodoList {
     }
   }
 
+  // Lägger till metod för att radera todo
+  deleteTodo(todoIndex: number): void {
+    if (this.todos[todoIndex]) {
+      this.todos.splice(todoIndex, 1);
+      this.saveToLocalStorage();
+    }
+  }
+
 }

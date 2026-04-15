@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // Om inga todos finns
     if (todos.length === 0) {
-        tableBody.innerHTML = '<tr><td colspan="3">Todolista är tom!</td></tr>';
+        tableBody.innerHTML = '<tr><td colspan="4">Todolista är tom!</td></tr>';
         return;
     }
     
@@ -41,6 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const kolumn1: HTMLTableCellElement = document.createElement('td');
         const kolumn2: HTMLTableCellElement = document.createElement('td');
         const kolumn3: HTMLTableCellElement = document.createElement('td');
+        const kolumn4: HTMLTableCellElement = document.createElement('td');
         
         // Fyll i data
         kolumn1.innerHTML = todo.task;
@@ -50,18 +51,33 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             // Skapa knapp
             const knapp: HTMLButtonElement = document.createElement('button');
-            knapp.innerHTML = 'Markera klar';
+            knapp.innerHTML = 'Slutför';
             knapp.onclick = function() {
                 todolistFull.markTodoCompleted(i);
-                location.reload(); // Uppdaterar sidan
+                // Uppdaterar sidan
+                location.reload();
             };
             kolumn3.appendChild(knapp);
         }
+
+        //Radera knapp
+        const raderaKnapp: HTMLButtonElement = document.createElement('button');
+        raderaKnapp.innerHTML = 'Radera';
+
+        raderaKnapp.onclick = function() {
+            if (confirm('Är du säker på att du vill radera uppgiften "' + todo.task + '"?')) {
+                todolistFull.deleteTodo(i);
+                location.reload();
+            }
+        };
+
+        kolumn4.appendChild(raderaKnapp);
         
         // Lägg till kolumner i raden
         rad.appendChild(kolumn1);
         rad.appendChild(kolumn2);
         rad.appendChild(kolumn3);
+        rad.appendChild(kolumn4);
                 
         // Lägg till raden i tabellen
         tableBody.appendChild(rad);

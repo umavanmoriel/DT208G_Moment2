@@ -234,8 +234,8 @@ footer {
   /* Main container */
   .todo-main,
   .addtodo-main {
-    margin: 0px 20px;
-    padding: 10px;
+    margin: 0px 0px;
+    padding: 0px;
     border: 1px solid #d1d5db;
     background: #ffffff;
   }
